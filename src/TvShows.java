@@ -187,7 +187,7 @@ class TvShows implements ActionListener {
 
         String evalStr = "(find-all-facts ((?f view)) TRUE)";
         PrimitiveValue view = clips.eval(evalStr).get(0);
-        String answer = view.getFactSlot("answer").toString();
+        String answer = view.getFactSlot("question").toString();
 
         if (ae.getActionCommand().equals("Next"))
         {

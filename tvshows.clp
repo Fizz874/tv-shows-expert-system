@@ -1,10 +1,7 @@
-
-
 ;;;wyświetlanie
 
 (deftemplate view
    (slot question (type SYMBOL))
-   (slot answer (type SYMBOL))
    (multislot valid-answers (type SYMBOL))
    (slot state (default on)))
 
@@ -12,125 +9,195 @@
 (defrule begin
 =>
 (assert (view (question powitanie)
-                (answer poczatek)
                  (valid-answers)
                  (state initial)
         )
 ))
-;;;nie powinniśmy usuwać faktów bo to nie ma lecieć po sznurku
-;;;jak zrobic aby preferowalo nowe reguly
-;;;sprawdzac czy stara nie isnieje
 
-(defrule jakiGatunek
-?h <- (view (question ?q))
-(poczatek)
-(not (exists (gatunek ?)))
-(not (exists (view (question ?q) (answer gatunek))))
+(defrule rJakiGatunek
+?h <- (view (question ?))
+(powitanie)
+(not (exists (jakiGatunek ?)))
+(not (exists (view (question jakiGatunek))))
 =>
 (retract ?h)
 (assert (view (question jakiGatunek)
-                (answer gatunek)
                  (valid-answers Sci-Fi Fantasy Horror Slipstream)
                  (state on)
         )
 ))
 
-(defrule czyAntologie
-?h <- (view (question ?q))
-(gatunek Sci-Fi)
-(not (exists (czyAnt ?)))
-(not (exists (view (question ?q) (answer czyAnt))))
+(defrule rCzyAntologie
+?h <- (view (question ?))
+(jakiGatunek Sci-Fi)
+(not (exists (czyAntologie ?)))
+(not (exists (view (question czyAntologie))))
 =>
 (retract ?h)
 (assert (view (question czyAntologie)
-                (answer czyAnt)
-                 (valid-answers Tak Nie)
+                 (valid-answers Nie Tak)
                  (state on)
         )
 ))
 
 
-(defrule czyOperaKosmiczna
-?h <- (view (question ?q))
-(gatunek Sci-Fi)
-(czyAnt Nie)
-(not (exists (opera-czy-ziemia ?)))
-(not (exists (view (question ?q) (answer opera-czy-ziemia))))
+(defrule rCzyOperaKosmiczna
+?h <- (view (question ?))
+(jakiGatunek Sci-Fi)
+(czyAntologie Nie)
+(not (exists (operaCzyZiemia ?)))
+(not (exists (view (question operaCzyZiemia))))
 =>
 (retract ?h)
-(assert (view (question czyOperaKosm)
-                (answer opera-czy-ziemia)
+(assert (view (question operaCzyZiemia)
                  (valid-answers SpaceOpera Ziemia)
                  (state on)
         )
 ))
 
-(defrule jacyKosmici
-?h <- (view (question ?q))
-(opera-czy-ziemia Ziemia)
-(not (exists (kosmici-sa ?)))
-(not (exists (view (question ?q) (answer kosmici-sa))))
+(defrule rJacyKosmici
+?h <- (view (question ?))
+(operaCzyZiemia Ziemia)
+(not (exists (jacyKosmici ?)))
+(not (exists (view (question jacyKosmici))))
 =>
 (retract ?h )
 (assert (view (question jacyKosmici)
-                (answer kosmici-sa)
                  (valid-answers Przyjacielscy Wrodzy)
                  (state on)
         )
 ))
 
-(defrule czyAnimowane
-?h <- (view (question ?q))
-(or (kosmici-sa Wrodzy))
-(not (exists (technika ?)))
-(not (exists (view (question ?q) (answer technika))))
+(defrule rLiveCzyAnimacja
+?h <- (view (question ?))
+(or (jacyKosmici Wrodzy))
+(not (exists (liveCzyAnimacja ?)))
+(not (exists (view (question liveCzyAnimacja))))
 =>
 (retract ?h )
-(assert (view (question czyAnimowane)
-                (answer technika)
+(assert (view (question liveCzyAnimacja)
                 (valid-answers Animacja Live-action)
                 (state on)
         )
 ))
 
-(defrule czyKomedia
-?h <- (view (question ?q))
-(opera-czy-ziemia SpaceOpera)
+(defrule rCzyKomedia
+?h <- (view (question ?))
+(operaCzyZiemia SpaceOpera)
 (not (exists (czyKomedia ?)))
-(not (exists (view (question ?q) (answer czyKomedia))))
+(not (exists (view (question czyKomedia))))
 =>
 (retract ?h )
 (assert (view (question czyKomedia)
-                (answer czyKomedia)
-                (valid-answers Tak Nie)
+                (valid-answers Nie Tak)
                 (state on)
         )
 ))
 
-(defrule USczyUK
-?h <- (view (question ?q))
-(czyKomedia Tak)
-(not (exists (kraj ?)))
-(not (exists (view (question ?q) (answer kraj))))
+(defrule rUSczyUK
+?h <- (view (question ?))
+(or (czyKomedia Tak)
+(czyPortaleCzasPrzestrzen Tak))
+(not (exists (USczyUK ?)))
+(not (exists (view (question USczyUK))))
 =>
 (retract ?h )
 (assert (view (question USczyUK)
-                (answer kraj)
                 (valid-answers US UK)
                 (state on)
         )
 ))
 
+(defrule rCzyFanStarTreka
+?h <- (view (question ?))
+(czyKomedia Nie)
+(jakiGatunek Sci-Fi)
+(not (exists (czyFanStarTreka ?)))
+(not (exists (view (question czyFanStarTreka))))
+=>
+(retract ?h )
+(assert (view (question czyFanStarTreka)
+                (valid-answers Nie Tak TakAleObejrzane)
+                (state on)
+        )
+))
 
 
+(defrule rOpiniaWilWheaton
+?h <- (view (question ?))
+(czyFanStarTreka Tak)
+(jakiGatunek Sci-Fi)
+(not (exists (opiniaWilWheaton ?)))
+(not (exists (view (question opiniaWilWheaton))))
+=>
+(retract ?h )
+(assert (view (question opiniaWilWheaton)
+                (valid-answers Super Niee)
+                (state on)
+        )
+))
+
+(defrule rJakieStudia
+?h <- (view (question ?))
+(czyFanStarTreka Tak)
+(opiniaWilWheaton Niee)
+(not (exists (jakieStudia ?)))
+(not (exists (view (question jakieStudia))))
+=>
+(retract ?h )
+(assert (view (question jakieStudia)
+                (valid-answers Politologia Socjologia Historia Emancypacja )
+                (state on)
+        )
+))
+
+
+(defrule rCzyWesterny
+?h <- (view (question ?))
+(czyFanStarTreka Nie)
+(not (exists (czyWesterny ?)))
+(not (exists (view (question czyWesterny))))
+=>
+(retract ?h )
+(assert (view (question czyWesterny)
+                (valid-answers Nie Tak)
+                (state on)
+        )
+))
+
+(defrule rCzyPortaleCzasPrzestrzen
+?h <- (view (question ?))
+(czyWesterny Nie)
+(not (exists (czyPortaleCzasPrzestrzen ?)))
+(not (exists (view (question czyPortaleCzasPrzestrzen))))
+=>
+(retract ?h )
+(assert (view (question czyPortaleCzasPrzestrzen)
+                (valid-answers Nie Tak)
+                (state on)
+        )
+))
+
+(defrule rKlasykCzyModern
+?h <- (view (question ?))
+(czyPortaleCzasPrzestrzen Nie)
+(not (exists (klasykCzyModern ?)))
+(not (exists (view (question klasykCzyModern))))
+=>
+(retract ?h )
+(assert (view (question klasykCzyModern)
+                (valid-answers Klasyk Modern)
+                (state on)
+        )
+))
 
 
 
 ;;;Odpowiedzi
 
 (defrule f-theOuterLimits
-(gatunek Sci-Fi)
-(czyAnt Tak)
+(jakiGatunek Sci-Fi)
+(czyAntologie Tak)
 ?h <- (view (question ?q))
 (not (exists (view (question ?q) (state final))))
 =>
@@ -141,10 +208,10 @@
 ))
 
 (defrule f-V
-(gatunek Sci-Fi)
-(technika Live-action)
-?h <- (view (question ?q))
-(not (exists (view (question ?q) (state final))))
+(jakiGatunek Sci-Fi)
+(liveCzyAnimacja Live-action)
+?h <- (view (question ?))
+(not (exists (view (state final))))
 =>
 (retract ?h )
 (assert (view (question f-V)
@@ -153,10 +220,10 @@
 ))
 
 (defrule f-invaderZIM
-(gatunek Sci-Fi)
-(technika Animacja)
-?h <- (view (question ?q))
-(not (exists (view (question ?q) (state final))))
+(jakiGatunek Sci-Fi)
+(liveCzyAnimacja Animacja)
+?h <- (view (question ?))
+(not (exists (view (state final))))
 =>
 (retract ?h )
 (assert (view (question f-invaderZIM)
@@ -165,10 +232,10 @@
 ))
 
 (defrule f-AlienNation
-(gatunek Sci-Fi)
-(kosmici-sa Przyjacielscy)
-?h <- (view (question ?q))
-(not (exists (view (question ?q) (state final))))
+(jakiGatunek Sci-Fi)
+(jacyKosmici Przyjacielscy)
+?h <- (view (question ?))
+(not (exists (view (state final))))
 =>
 (retract ?h )
 (assert (view (question f-AlienNation)
@@ -177,11 +244,11 @@
 ))
 
 (defrule f-Futurama
-(gatunek Sci-Fi)
+(jakiGatunek Sci-Fi)
 (czyKomedia Tak)
-(kraj US)
-?h <- (view (question ?q))
-(not (exists (view (question ?q) (state final))))
+(USczyUK US)
+?h <- (view (question ?))
+(not (exists (view (state final))))
 =>
 (retract ?h )
 (assert (view (question f-Futurama)
@@ -190,14 +257,157 @@
 ))
 
 (defrule f-RedDwarf
-(gatunek Sci-Fi)
+(jakiGatunek Sci-Fi)
 (czyKomedia Tak)
-(kraj UK)
-?h <- (view (question ?q))
-(not (exists (view (question ?q) (state final))))
+(USczyUK UK)
+?h <- (view (question ?))
+(not (exists (view (state final))))
 =>
 (retract ?h )
 (assert (view (question f-RedDwarf)
+                 (state final)
+        )
+))
+
+(defrule f-EarthFinalConflict
+(jakiGatunek Sci-Fi)
+(czyKomedia Nie)
+(czyFanStarTreka TakAleObejrzane)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-EarthFinalConflict)
+                 (state final)
+        )
+))
+
+(defrule f-StarTrekTheNextGeneration
+(jakiGatunek Sci-Fi)
+(czyFanStarTreka Tak)
+(opiniaWilWheaton Super)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-StarTrekTheNextGeneration)
+                 (state final)
+        )
+))
+
+(defrule f-StarTrekDeepSpaceNine
+(jakiGatunek Sci-Fi)
+(opiniaWilWheaton Niee)
+(jakieStudia Politologia)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-StarTrekDeepSpaceNine)
+                 (state final)
+        )
+))
+
+(defrule f-StarTrekVoyager
+(jakiGatunek Sci-Fi)
+(opiniaWilWheaton Niee)
+(jakieStudia Emancypacja)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-StarTrekVoyager)
+                 (state final)
+        )
+))
+
+(defrule f-StarTrekTheOriginalSeries
+(jakiGatunek Sci-Fi)
+(opiniaWilWheaton Niee)
+(jakieStudia Socjologia)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-StarTrekTheOriginalSeries)
+                 (state final)
+        )
+))
+
+(defrule f-StarTrekEnterprise
+(jakiGatunek Sci-Fi)
+(opiniaWilWheaton Niee)
+(jakieStudia Historia)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-StarTrekEnterprise)
+                 (state final)
+        )
+))
+
+(defrule f-Firefly
+(jakiGatunek Sci-Fi)
+(czyWesterny Tak)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-Firefly)
+                 (state final)
+        )
+))
+
+
+(defrule f-StargateSG-1
+(jakiGatunek Sci-Fi)
+(czyPortaleCzasPrzestrzen Tak)
+(USczyUK US)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-StargateSG-1)
+                 (state final)
+        )
+))
+
+(defrule f-DoktorWho
+(jakiGatunek Sci-Fi)
+(czyPortaleCzasPrzestrzen Tak)
+(USczyUK UK)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-DoktorWho)
+                 (state final)
+        )
+))
+
+(defrule f-BattleStartGalactica1978
+(jakiGatunek Sci-Fi)
+(czyPortaleCzasPrzestrzen Nie)
+(klasykCzyModern Klasyk)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-BattleStartGalactica1978)
+                 (state final)
+        )
+))
+
+(defrule f-BattleStartGalactica2004
+(jakiGatunek Sci-Fi)
+(czyPortaleCzasPrzestrzen Nie)
+(klasykCzyModern Modern)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-BattleStartGalactica2004)
                  (state final)
         )
 ))

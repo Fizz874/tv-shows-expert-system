@@ -4,20 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e811b26-81a9-46dc-995b-f234a072f345" name="Changes" comment="Add basic funcionality">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/CLIPSJNI.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/CLIPSJNI.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/libCLIPSJNI.jnilib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TvShows.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/TvResources.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tv-shows-expert-system.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tvshows.clp" afterDir="false" />
+    <list default="true" id="6e811b26-81a9-46dc-995b-f234a072f345" name="Changes" comment="Add basic functionality">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TvShows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TvShows.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/TvResources.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/TvResources.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tvshows.clp" beforeDir="false" afterPath="$PROJECT_DIR$/tvshows.clp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,47 +19,48 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Fizz874"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Fizz874&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Fizz874/tv-shows-expert-system.git",
-    "accountId": "942a11be-24ae-4d05-bd5d-3ca382e50e2c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Fizz874/tv-shows-expert-system.git&quot;,
+    &quot;accountId&quot;: &quot;942a11be-24ae-4d05-bd5d-3ca382e50e2c&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 5
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2pzOVYKcggIaxBW7paDTe7eB1Lt" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.TvShows.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/filip/Documents/Filip/Test/sci-fi-shows",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "File.Encoding",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.TvShows.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/filip/Documents/Filip/Test/Projekt Unit tests/UnitTests&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -84,8 +77,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733765464475</updated>
-      <workItem from="1733765465769" duration="7705000" />
+      <workItem from="1733765465769" duration="9597000" />
+      <workItem from="1733826366038" duration="4002000" />
+      <workItem from="1733834012327" duration="6927000" />
+      <workItem from="1733915426240" duration="4879000" />
     </task>
+    <task id="LOCAL-00001" summary="Add basic functionality">
+      <option name="closed" value="true" />
+      <created>1733776964872</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1733776964872</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -93,6 +98,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add basic funcionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add basic funcionality" />
+    <MESSAGE value="Add basic functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add basic functionality" />
   </component>
 </project>
