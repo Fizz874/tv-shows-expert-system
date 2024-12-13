@@ -134,8 +134,6 @@ class TvShows implements ActionListener {
         }
         else
         {
-            //nextButton.setActionCommand("Next");
-            //nextButton.setText(tvResources.getString("Next"));
             prevButton.setVisible(true);
         }
 
@@ -143,8 +141,6 @@ class TvShows implements ActionListener {
         choicesButtons = new ButtonGroup();
 
         PrimitiveValue pv = fv.getFactSlot("valid-answers");
-
-        //String selected = fv.getFactSlot("response").toString();
 
         for (int i = 0; i < pv.size(); i++)
         {
@@ -199,13 +195,10 @@ class TvShows implements ActionListener {
                         choicesButtons.getSelection().getActionCommand() +
                         ")");
             }
-            //clips.assertString("(move)");
             runTv();
         }
         else if (ae.getActionCommand().equals("Restart"))
         {
-            //clips.eval("(find-all-facts ((?f currentId)) TRUE ) ");
-
             clips.reset();
             runTv();
         }
@@ -266,7 +259,6 @@ class TvShows implements ActionListener {
 
     public static void main(String args[])
     {
-        // Create the frame on the event dispatching thread.
         SwingUtilities.invokeLater(
                 new Runnable()
                 {

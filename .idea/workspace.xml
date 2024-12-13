@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e811b26-81a9-46dc-995b-f234a072f345" name="Changes" comment="Add basic functionality">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="6e811b26-81a9-46dc-995b-f234a072f345" name="Changes" comment="Add Sci-Fi branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TvShows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TvShows.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/TvResources.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/TvResources.properties" afterDir="false" />
@@ -41,26 +40,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.TvShows.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/filip/Documents/Filip/Test/Projekt Unit tests/UnitTests&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;File.Encoding&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.TvShows.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/filip/Documents/Filip/Test/tv-shows-expert-system",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "File.Encoding",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -80,7 +79,9 @@
       <workItem from="1733765465769" duration="9597000" />
       <workItem from="1733826366038" duration="4002000" />
       <workItem from="1733834012327" duration="6927000" />
-      <workItem from="1733915426240" duration="4879000" />
+      <workItem from="1733915426240" duration="6398000" />
+      <workItem from="1734007120313" duration="22000" />
+      <workItem from="1734081439760" duration="6308000" />
     </task>
     <task id="LOCAL-00001" summary="Add basic functionality">
       <option name="closed" value="true" />
@@ -90,7 +91,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733776964872</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add Sci-Fi branch">
+      <option name="closed" value="true" />
+      <created>1733921838946</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1733921838946</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -99,6 +108,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add basic funcionality" />
     <MESSAGE value="Add basic functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add basic functionality" />
+    <MESSAGE value="Add Sci-Fi branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Sci-Fi branch" />
   </component>
 </project>

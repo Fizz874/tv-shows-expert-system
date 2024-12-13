@@ -192,6 +192,93 @@
 ))
 
 
+(defrule rAkcjaCzyDramat
+?h <- (view (question ?))
+(jakiGatunek Slipstream)
+(not (exists (akcjaCzyDramat ?)))
+(not (exists (view (question akcjaCzyDramat))))
+=>
+(retract ?h )
+(assert (view (question akcjaCzyDramat)
+                (valid-answers Akcja Dramat)
+                (state on)
+        )
+))
+
+
+(defrule rSteamCzyBiopunk
+?h <- (view (question ?))
+(jakiGatunek Slipstream)
+(akcjaCzyDramat Akcja)
+(not (exists (steamCzyBiopunk ?)))
+(not (exists (view (question steamCzyBiopunk))))
+=>
+(retract ?h )
+(assert (view (question steamCzyBiopunk)
+                (valid-answers Steampunk Biopunk)
+                (state on)
+        )
+))
+
+
+(defrule rWhedonCzyCameron
+?h <- (view (question ?))
+(jakiGatunek Slipstream)
+(steamCzyBiopunk Biopunk)
+(not (exists (whedonCzyCameron ?)))
+(not (exists (view (question whedonCzyCameron))))
+=>
+(retract ?h )
+(assert (view (question whedonCzyCameron)
+                (valid-answers Whedon Cameron)
+                (state on)
+        )
+))
+
+
+(defrule rWidzialesZArchiwumX
+?h <- (view (question ?))
+(jakiGatunek Slipstream)
+(akcjaCzyDramat Dramat)
+(not (exists (widzialesZArchiwumX ?)))
+(not (exists (view (question widzialesZArchiwumX))))
+=>
+(retract ?h )
+(assert (view (question widzialesZArchiwumX)
+                (valid-answers Nie Tak TakAleZaluje)
+                (state on)
+        )
+))
+
+(defrule rCzyLubiszZawod
+?h <- (view (question ?))
+(jakiGatunek Slipstream)
+(widzialesZArchiwumX TakAleZaluje)
+(not (exists (czyLubiszZawod ?)))
+(not (exists (view (question czyLubiszZawod))))
+=>
+(retract ?h )
+(assert (view (question czyLubiszZawod)
+                (valid-answers Nie Tak)
+                (state on)
+        )
+))
+
+
+(defrule rOpiniaScottBakula
+?h <- (view (question ?))
+(jakiGatunek Slipstream)
+(czyLubiszZawod Nie)
+(not (exists (opiniaScottBakula ?)))
+(not (exists (view (question opiniaScottBakula))))
+=>
+(retract ?h )
+(assert (view (question opiniaScottBakula)
+                (valid-answers nieZnam jestemFanem)
+                (state on)
+        )
+))
+
 
 ;;;Odpowiedzi
 
@@ -399,6 +486,20 @@
         )
 ))
 
+
+(defrule f-BattleStartGalactica1978
+(jakiGatunek Sci-Fi)
+(czyPortaleCzasPrzestrzen Nie)
+(klasykCzyModern Klasyk)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-BattleStartGalactica1978)
+                 (state final)
+        )
+))
+
 (defrule f-BattleStartGalactica2004
 (jakiGatunek Sci-Fi)
 (czyPortaleCzasPrzestrzen Nie)
@@ -411,3 +512,102 @@
                  (state final)
         )
 ))
+
+(defrule f-Sanctuary
+(jakiGatunek Slipstream)
+(steamCzyBiopunk Steampunk)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-Sanctuary)
+                 (state final)
+        )
+))
+
+(defrule f-DarkAngel
+(jakiGatunek Slipstream)
+(whedonCzyCameron Cameron)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-DarkAngel)
+                 (state final)
+        )
+))
+
+(defrule f-Dollhouse
+(jakiGatunek Slipstream)
+(whedonCzyCameron Whedon)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-Dollhouse)
+                 (state final)
+        )
+))
+
+
+(defrule f-Fringe
+(jakiGatunek Slipstream)
+(widzialesZArchiwumX Tak)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-Fringe)
+                 (state final)
+        )
+))
+
+(defrule f-TheXFiles
+(jakiGatunek Slipstream)
+(widzialesZArchiwumX Nie)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-TheXFiles)
+                 (state final)
+        )
+))
+
+(defrule f-Lost
+(jakiGatunek Slipstream)
+(czyLubiszZawod Tak)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-Lost)
+                 (state final)
+        )
+))
+
+(defrule f-QuantumLeap
+(jakiGatunek Slipstream)
+(opiniaScottBakula jestemFanem)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-QuantumLeap)
+                 (state final)
+        )
+))
+
+(defrule f-Warehouse13
+(jakiGatunek Slipstream)
+(opiniaScottBakula nieZnam)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h )
+(assert (view (question f-Warehouse13)
+                 (state final)
+        )
+))
+
+
