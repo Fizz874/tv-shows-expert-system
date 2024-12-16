@@ -29,7 +29,7 @@
 
 (defrule rCzyAntologie
 ?h <- (view (question ?))
-(jakiGatunek Sci-Fi)
+(or (jakiGatunek Sci-Fi) (wampiryCzyZombie Zadne))
 (not (exists (czyAntologie ?)))
 (not (exists (view (question czyAntologie))))
 =>
@@ -70,11 +70,13 @@
 
 (defrule rLiveCzyAnimacja
 ?h <- (view (question ?))
-(or (jacyKosmici Wrodzy))
+(or (jacyKosmici Wrodzy)
+(mityCzyLegendy Legendy)
+(czySuperbohater Tak))
 (not (exists (liveCzyAnimacja ?)))
 (not (exists (view (question liveCzyAnimacja))))
 =>
-(retract ?h )
+(retract ?h)
 (assert (view (question liveCzyAnimacja)
                 (valid-answers Animacja Live-action)
                 (state on)
@@ -97,11 +99,12 @@
 (defrule rUSczyUK
 ?h <- (view (question ?))
 (or (czyKomedia Tak)
-(czyPortaleCzasPrzestrzen Tak))
+(czyPortaleCzasPrzestrzen Tak)
+(SFWczyNSFW NSFW))
 (not (exists (USczyUK ?)))
 (not (exists (view (question USczyUK))))
 =>
-(retract ?h )
+(retract ?h)
 (assert (view (question USczyUK)
                 (valid-answers US UK)
                 (state on)
@@ -277,6 +280,165 @@
                 (valid-answers nieZnam jestemFanem)
                 (state on)
         )
+))
+
+(defrule rWampiryCzyZombie
+?h <- (view (question ?))
+(jakiGatunek Horror)
+(not (exists (wampiryCzyZombie ?)))
+(not (exists (view (question wampiryCzyZombie))))
+=>
+(retract ?h)
+(assert (view (question wampiryCzyZombie)
+		(valid-answers Wampiry Zombie Zadne)
+		(state on)
+	)
+))
+
+(defrule rPsychoCzyKrwawe
+?h <- (view (question ?))
+(wampiryCzyZombie Zadne)
+(czyAntologie Tak)
+(not (exists (psychoCzyKrwawe ?)))
+(not (exists (view (question psychoCzyKrwawe))))
+=>
+(retract ?h)
+(assert (view (question psychoCzyKrwawe)
+		(valid-answers Psycho Krwawe)
+		(state on)
+	)
+))
+
+(defrule rJakiWiek
+?h <- (view (question ?))
+(wampiryCzyZombie Wampiry)
+(not (exists (jakiWiek ?)))
+(not (exists (view (question jakiWiek))))
+=>
+(retract ?h)
+(assert (view (question jakiWiek)
+		(valid-answers Ponad16 Ponizej16)
+		(state on)
+	)
+))
+
+(defrule rSFWczyNSFW
+?h <- (view (question ?))
+(jakiWiek Ponad16)
+(not (exists (SFWczyNSFW ?)))
+(not (exists (view (question SFWczyNSFW))))
+=>
+(retract ?h)
+(assert (view (question SFWczyNSFW)
+		(valid-answers SFW NSFW)
+		(state on)
+	)
+))
+
+(defrule rWidzialesBuffy
+?h <- (view (question ?))
+(SFWczyNSFW SFW)
+(not (exists (widzialesBuffy ?)))
+(not (exists (view (question widzialesBuffy))))
+=>
+(retract ?h)
+(assert (view (question widzialesBuffy)
+		(valid-answers Tak Nie)
+		(state on)
+	)
+))
+
+(defrule rMiastoCzyHistoria
+?h <- (view (question ?))
+(jakiGatunek Fantasy)
+(not (exists (miastoCzyHistoria ?)))
+(not (exists (view (question miastoCzyHistoria))))
+=>
+(retract ?h)
+(assert (view (question miastoCzyHistoria)
+		(valid-answers Miasto Historyczne)
+		(state on)
+	)
+))
+
+(defrule rMityCzyLegendy
+?h <- (view (question ?))
+(miastoCzyHistoria Historyczne)
+(not (exists (mityCzyLegendy ?)))
+(not (exists (view (question mityCzyLegendy))))
+=>
+(retract ?h)
+(assert (view (question mityCzyLegendy)
+		(valid-answers Mity Legendy)
+		(state on)
+	)
+))
+
+(defrule rMaszGameboya
+?h <- (view (question ?))
+(liveCzyAnimacja Animacja)
+(mityCzyLegendy Legendy)
+(not (exists (maszGameboya ?)))
+(not (exists (view (question maszGameboya))))
+=>
+(retract ?h)
+(assert (view (question maszGameboya)
+		(valid-answers Tak Nie)
+		(state on)
+	)
+))
+
+(defrule rCzyNagosc
+?h <- (view (question ?))
+(liveCzyAnimacja Live-action)
+(mityCzyLegendy Legendy)
+(not (exists (czyNagosc ?)))
+(not (exists (view (question czyNagosc))))
+=>
+(retract ?h)
+(assert (view (question czyNagosc)
+		(valid-answers Tak Nie)
+		(state on)
+	)
+))
+
+(defrule rFaceciCzyDziewczyny
+?h <- (view (question ?))
+(mityCzyLegendy Mity)
+(not (exists (faceciCzyDziewczyny ?)))
+(not (exists (view (question faceciCzyDziewczyny))))
+=>
+(retract ?h)
+(assert (view (question faceciCzyDziewczyny)
+		(valid-answers Faceci Dziewczyny)
+		(state on)
+	)
+))
+
+(defrule rCzySuperbohater
+?h <- (view (question ?))
+(miastoCzyHistoria Miasto)
+(not (exists (czySuperbohater ?)))
+(not (exists (view (question czySuperbohater))))
+=>
+(retract ?h)
+(assert (view (question czySuperbohater)
+		(valid-answers Tak Nie)
+		(state on)
+	)
+))
+
+(defrule rCzyMitologia
+?h <- (view (question ?))
+(czySuperbohater Nie)
+(not (exists (czyMitologia ?)))
+(not (exists (view (question czyMitologia))))
+=>
+(retract ?h)
+(assert (view (question czyMitologia)
+		(valid-answers Tak Nie)
+		(state on)
+	)
 ))
 
 
@@ -608,6 +770,221 @@
 (assert (view (question f-Warehouse13)
                  (state final)
         )
+))
+
+
+(defrule f-theWalkingDead
+(wampiryCzyZombie Zombie)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-theWalkingDead)
+		(state final)
+	)
+))
+
+(defrule f-Charmed
+(jakiGatunek Horror)
+(czyAntologie Nie)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-Charmed)
+		(state final)
+	)
+))
+
+(defrule f-theTwilightZone
+(psychoCzyKrwawe Psycho)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-theTwilightZone)
+		(state final)
+	)
+))
+
+(defrule f-TalesFromTheCrypt
+(psychoCzyKrwawe Krwawe)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-TalesFromTheCrypt)
+		(state final)
+	)
+))
+
+(defrule f-Angel
+(widzialesBuffy Tak)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-Angel)
+		(state final)
+	)
+))
+
+(defrule f-BuffyTheVampireSlayer
+(widzialesBuffy Nie)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-BuffyTheVampireSlayer)
+		(state final)
+	)
+))
+
+(defrule f-TrueBlood
+(jakiGatunek Horror)
+(USczyUK US)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-TrueBlood)
+		(state final)
+	)
+))
+
+(defrule f-BeingHuman
+(jakiGatunek Horror)
+(USczyUK UK)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-BeingHuman)
+		(state final)
+	)
+))
+
+(defrule f-theVampireDiaries
+(jakiWiek Ponizej16)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-theVampireDiaries)
+		(state final)
+	)
+))
+
+(defrule f-PokemonIndigoLeague
+(maszGameboya Tak)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-PokemonIndigoLeague)
+		(state final)
+	)
+))
+
+(defrule f-AvatarTheLastAirbender
+(maszGameboya Nie)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-AvatarTheLastAirbender)
+		(state final)
+	)
+))
+
+(defrule f-LegendOfTheSeeker
+(czyNagosc Nie)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-LegendOfTheSeeker)
+		(state final)
+	)
+))
+
+(defrule f-SpartacusBloodAndSand
+(czyNagosc Tak)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-SpartacusBloodAndSand)
+		(state final)
+	)
+))
+
+(defrule f-HerculesTheLegendaryJourneys
+(faceciCzyDziewczyny Faceci)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-HerculesTheLegendaryJourneys)
+		(state final)
+	)
+))
+
+(defrule f-XenaWarriorPrincess
+(faceciCzyDziewczyny Dziewczyny)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-XenaWarriorPrincess)
+		(state final)
+	)
+))
+
+(defrule f-theDresdenFiles
+(czyMitologia Nie)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-theDresdenFiles)
+		(state final)
+	)
+))
+
+(defrule f-Highlander
+(czyMitologia Tak)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-Highlander)
+		(state final)
+	)
+))
+
+(defrule f-Smallville
+(czySuperbohater Tak)
+(liveCzyAnimacja Live-action)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-Smallville)
+		(state final)
+	)
+))
+
+(defrule f-theTick
+(czySuperbohater Tak)
+(liveCzyAnimacja Animacja)
+?h <- (view (question ?))
+(not (exists (view (state final))))
+=>
+(retract ?h)
+(assert (view (question f-theTick)
+		(state final)
+	)
 ))
 
 
