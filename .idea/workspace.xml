@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6e811b26-81a9-46dc-995b-f234a072f345" name="Changes" comment="Add Sci-Fi branch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TvShows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TvShows.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/TvResources.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/TvResources.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tvshows.clp" beforeDir="false" afterPath="$PROJECT_DIR$/tvshows.clp" afterDir="false" />
     </list>
@@ -45,9 +44,9 @@
     "Application.TvShows.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "FantasyAndHorror",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/filip/Documents/Filip/Test/tv-shows-expert-system",
+    "last_opened_file_path": "C:/Users/strze/git/tv-shows-expert-system",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -63,8 +62,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23726.103" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23726.103" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -82,6 +81,7 @@
       <workItem from="1733915426240" duration="6398000" />
       <workItem from="1734007120313" duration="22000" />
       <workItem from="1734081439760" duration="6308000" />
+      <workItem from="1734303339324" duration="4146000" />
     </task>
     <task id="LOCAL-00001" summary="Add basic functionality">
       <option name="closed" value="true" />
@@ -104,6 +104,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add basic funcionality" />
